@@ -87,7 +87,8 @@ int main() {
     printf("PIB da cidade 1: %.2f\n", pibA1);
     printf("PIB da cidade 2: %.2f\n\n", pibB1);
 
-    // Exibição dos Resultados:
+    // Exibição dos Resultados
+    // Código escrito prevendo a possibilidade de empate entre os valores digitados pelo usuário
 
     if (pibA1 == pibB1) {
         printf("As duas cidades têm o mesmo PIB.\n\n");
@@ -108,6 +109,7 @@ int main() {
         } else {
         printf("%s venceu!\n", cidadeB1);
      }
+
 
     printf("\n*** Fim *** \n\n\n");
 
