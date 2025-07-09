@@ -92,9 +92,7 @@ int main() {
 
     if (pibA1 == pibB1) {
         printf("As duas cidades têm o mesmo PIB.\n\n");
-     } else
-
-        if (pibA1 > pibB1) {
+     } else if (pibA1 > pibB1) {
           printf("Cidade 1 tem maior PIB.\n\n");
         } else {
           printf("Cidade 2 tem maior PIB.\n\n");
@@ -102,9 +100,7 @@ int main() {
 
     if (pibA1 == pibB1) {
          printf("Deu empate!\n");
-     } else
-        
-        if (pibA1 > pibB1) {
+     } else if (pibA1 > pibB1) {
         printf("%s venceu!\n", cidadeA1);
         } else {
         printf("%s venceu!\n", cidadeB1);
