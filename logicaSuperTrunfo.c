@@ -99,7 +99,7 @@ int main() {
         }
 
     if (pibA1 == pibB1) {
-         printf("Deu empate!\n");
+        printf("Deu empate!\n");
      } else if (pibA1 > pibB1) {
         printf("%s venceu!\n", cidadeA1);
         } else {
