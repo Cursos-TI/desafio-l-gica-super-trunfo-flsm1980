@@ -8,9 +8,9 @@
 int main() {
     // Definição das variáveis para armazenar as propriedades das cidades
 
-    char cartaA1[3], cartaB1[3], cidadeA1[30], cidadeB1[30];
+    char cartaA1[5], cartaB1[5], cidadeA1[30], cidadeB1[30];
     int populacaoA1, populacaoB1;
-    float areaA1, areaB1, pibA1, pibB1;
+    float areaA1, areaB1, pibA1, pibB1, densidadeA1, densidadeB1;
     int pontosturisticosA1, pontosturisticosB1;
     
     // Cadastro das Cartas:
@@ -23,7 +23,7 @@ int main() {
     scanf("%s", cartaA1);
 
     printf("Nome da cidade: \n");
-    scanf("%s", cidadeA1);
+    scanf(" %29[^\n]", cidadeA1);
 
     printf("População: \n");
     scanf("%d", &populacaoA1);
@@ -46,7 +46,7 @@ int main() {
     scanf("%s", cartaB1);
 
     printf("Nome da Cidade: \n");
-    scanf("%s", cidadeB1);
+    scanf(" %29[^\n]", cidadeB1);
     
     printf("População: \n");
     scanf("%d", &populacaoB1);
@@ -60,10 +60,21 @@ int main() {
     printf("Quantidade de pontos turísticos: \n");
     scanf("%d", &pontosturisticosB1);
 
-        // Cálculo do inverso da densidade demográfica cartaA1
-        float DensidadeA1 = (populacaoA1 / areaA1);
-        // Cálculo do inverso da densidade demográfica cartaB1
-        float DensidadeB1 = (populacaoB1 / areaB1);
+        // Cálculo do inverso das densidades demográficas das cartas 1 e 2
+
+        if (areaA1 > 0) {
+          densidadeA1 = (float)populacaoA1 / areaA1;} // Garante que a divisão seja float
+        else {
+          densidadeA1 = 0.0f;
+          printf("Aviso: área da Carta A01 é zero, densidade populacional indefinida!\n\n");
+        }
+        
+        if (areaB1 > 0) {
+          densidadeB1 = (float)populacaoB1 / areaB1;} // Garante que a divisão seja float
+        else {
+          densidadeB1 = 0.0f;
+          printf("Aviso: área da Carta B01 é zero, densidade populacional indefinida!\n\n");
+        }
 
     // Menu para escolha do atributo a ser comparado
     printf("\n*** Escolha um atributo para comparação ***\n\n");
@@ -140,12 +151,12 @@ int main() {
 
       case 5:
         printf ("\nAtributo escolhido: densidade populacional\n\n");
-            printf ("%s tem uma densidade populacional de %.2f hab/km².\n", cidadeA1 , DensidadeA1);
-            printf ("%s tem uma densidade populacional de %.2f hab/km².\n", cidadeB1 , DensidadeB1);
+            printf ("%s tem uma densidade populacional de %.2f hab/km².\n", cidadeA1 , densidadeA1);
+            printf ("%s tem uma densidade populacional de %.2f hab/km².\n", cidadeB1 , densidadeB1);
             
-        if (DensidadeB1 > DensidadeA1) {           
+        if (densidadeB1 > densidadeA1) {           
             printf ("%s ganhou! \n\n", cidadeA1);
-          } else if (DensidadeB1 < DensidadeA1) {
+          } else if (densidadeB1 < densidadeA1) {
             printf ("%s ganhou! \n\n", cidadeB1);
           } else { 
             printf ("Deu empate!\n\n");
