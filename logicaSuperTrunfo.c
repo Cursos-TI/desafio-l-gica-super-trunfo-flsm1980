@@ -8,9 +8,9 @@
 int main() {
     // Definição das variáveis para armazenar as propriedades das cidades
 
-    char cartaA1[5], cartaB1[5], cidadeA1[30], cidadeB1[30];
+    char cartaA1[5], cartaB1[5], cidadeA1[30], cidadeB1[30], estadoA1[5], estadoB1[5];
     int populacaoA1, populacaoB1;
-    float areaA1, areaB1, pibA1, pibB1, densidadeA1, densidadeB1;
+    float areaA1, areaB1, pibA1, pibB1, densidadeA1, densidadeB1, pibcapitaA1, pibcapitaB1;
     int pontosturisticosA1, pontosturisticosB1;
     
     // Cadastro das Cartas:
@@ -20,7 +20,10 @@ int main() {
     printf("INSIRA DADOS DA PRIMEIRA CARTA\n\n");
 
     printf("Código da Carta (letra e número): \n");
-    scanf("%s", cartaA1);
+    scanf("%s", &cartaA1);
+
+    printf("Estado (sigla): \n");
+    scanf("%s", &estadoA1);
 
     printf("Nome da cidade: \n");
     scanf(" %29[^\n]", cidadeA1);
@@ -43,7 +46,10 @@ int main() {
     printf("INSIRA DADOS DA SEGUNDA CARTA\n\n");
 
     printf("Código da Carta (letra e número): \n");
-    scanf("%s", cartaB1);
+    scanf("%s", &cartaB1);
+    
+    printf("Estado (sigla): \n");
+    scanf("%s", &estadoB1);
 
     printf("Nome da Cidade: \n");
     scanf(" %29[^\n]", cidadeB1);
@@ -76,14 +82,54 @@ int main() {
           printf("Aviso: área da Carta B01 é zero, densidade populacional indefinida!\n\n");
         }
 
+        // Cálculo do PIB per capita das cartas 1 e 2
+
+        if (populacaoA1 > 0) {
+          pibcapitaA1 = pibA1 / populacaoA1;} // Garante que a divisão seja float
+        else {
+          pibcapitaA1 = 0.0f;
+          printf("Aviso: população da Carta A01 é zero, PIB per capita indefinido!\n\n");
+        }
+        
+        if (populacaoB1 > 0) {
+          pibcapitaB1 = pibB1 / populacaoB1;} // Garante que a divisão seja float
+        else {
+          pibcapitaB1 = 0.0f;
+          printf("Aviso: população da Carta B01 é zero, PIB per capita indefinido!\n\n");
+        }
+
+    // Exibição dos dados das cartas
+    printf("\n\n*** CARTA %s ***\n", cartaA1);
+    printf("%s\n"
+           "%s\n"
+           "%d\n"
+           "%.2f\n"
+           "%.2f\n"
+           "%d\n"     
+           "%.2f\n"
+           "%.2f\n",
+    estadoA1 , cidadeA1 , populacaoA1 , areaA1 , pibA1 , pontosturisticosA1 , densidadeA1 , pibcapitaA1);
+ 
+    printf("\n*** CARTA %s ***\n", cartaB1);
+    printf("%s\n"
+           "%s\n"
+           "%d\n"
+           "%.2f\n"
+           "%.2f\n"
+           "%d\n"     
+           "%.2f\n"
+           "%.2f\n",
+    estadoB1 , cidadeB1 , populacaoB1 , areaB1 , pibB1 , pontosturisticosB1 , densidadeB1 , pibcapitaB1);
+ 
     // Menu para escolha do atributo a ser comparado
-    printf("\n*** Escolha um atributo para comparação ***\n\n");
+    printf("\n\n*** Escolha um atributo para comparação ***\n\n");
     printf("1 - População\n");
     printf("2 - Área\n");
     printf("3 - PIB\n");
     printf("4 - Pontos Turísticos\n");
     printf("5 - Densidade Populacional\n");
-    printf("6 - Sair do Jogo\n");
+    printf("6 - PIB per capita\n");
+    printf("7 - Sair do Jogo\n");
 
     // Variável para escolha do atributo
     int opcao;
@@ -164,6 +210,20 @@ int main() {
       break;
 
       case 6:
+        printf ("\nAtributo escolhido: PIB per capita\n\n");
+            printf ("%s tem um PIB per capita de R$ %.2f.\n", cidadeA1 , pibcapitaA1);
+            printf ("%s tem um PIB per capita de R$ %.2f.\n", cidadeB1 , pibcapitaB1);
+            
+        if (pibcapitaA1 > pibcapitaB1) {           
+            printf ("%s ganhou! \n\n", cidadeA1);
+          } else if (pibcapitaA1 < pibcapitaB1) {
+            printf ("%s ganhou! \n\n", cidadeB1);
+          } else { 
+            printf ("Deu empate!\n\n");
+          }
+      break;
+
+      case 7:
         printf ("\n*** Jogo Finalizado! ***\n\n\n");
         break;
 
