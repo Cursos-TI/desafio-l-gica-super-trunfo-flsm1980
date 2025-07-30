@@ -20,25 +20,31 @@ int main() {
     printf("INSIRA DADOS DA PRIMEIRA CARTA\n\n");
 
     printf("Código da Carta (letra e número): \n");
-    scanf("%s", cartaA1);
+    scanf("%4s", cartaA1);
+    while (getchar() != '\n');    
 
     printf("Estado (sigla): \n");
     scanf("%4s", estadoA1);
+    while (getchar() != '\n')
 
     printf("Nome da cidade: \n");
     scanf(" %29[^\n]", cidadeA1);
 
     printf("População: \n");
     scanf("%lu", &populacaoA1);
+    while (getchar() != '\n')
 
     printf("Área: \n");
     scanf("%f", &areaA1);
+    while (getchar() != '\n')
 
     printf("PIB: \n");
     scanf("%f", &pibA1);
+    while (getchar() != '\n')
 
     printf("Quantidade de pontos turísticos: \n");
     scanf("%d", &pontosturisticosA1);
+    while (getchar() != '\n')
 
     // CartaB1
 
@@ -46,25 +52,31 @@ int main() {
     printf("INSIRA DADOS DA SEGUNDA CARTA\n\n");
 
     printf("Código da Carta (letra e número): \n");
-    scanf("%s", cartaB1);
+    scanf("%4s", cartaB1);
+    while (getchar() != '\n')
     
     printf("Estado (sigla): \n");
     scanf("%4s", estadoB1);
+    while (getchar() != '\n')
 
     printf("Nome da Cidade: \n");
     scanf(" %29[^\n]", cidadeB1);
     
     printf("População: \n");
     scanf("%lu", &populacaoB1);
+    while (getchar() != '\n')
     
     printf("Área: \n");
     scanf("%f", &areaB1);
+    while (getchar() != '\n')
     
     printf("PIB: \n");
     scanf("%f", &pibB1);
+    while (getchar() != '\n')
 
     printf("Quantidade de pontos turísticos: \n");
     scanf("%d", &pontosturisticosB1);
+    while (getchar() != '\n')
 
         // Cálculo das densidades demográficas das cartas 1 e 2
 
