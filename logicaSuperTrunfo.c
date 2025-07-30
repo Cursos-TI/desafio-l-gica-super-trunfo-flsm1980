@@ -23,7 +23,7 @@ int main() {
     scanf("%s", cartaA1);
 
     printf("Estado (sigla): \n");
-    scanf("%s", estadoA1);
+    scanf("%4s", estadoA1);
 
     printf("Nome da cidade: \n");
     scanf(" %29[^\n]", cidadeA1);
@@ -49,7 +49,7 @@ int main() {
     scanf("%s", cartaB1);
     
     printf("Estado (sigla): \n");
-    scanf("%s", estadoB1);
+    scanf("%4s", estadoB1);
 
     printf("Nome da Cidade: \n");
     scanf(" %29[^\n]", cidadeB1);
@@ -66,7 +66,7 @@ int main() {
     printf("Quantidade de pontos turísticos: \n");
     scanf("%d", &pontosturisticosB1);
 
-        // Cálculo do inverso das densidades demográficas das cartas 1 e 2
+        // Cálculo das densidades demográficas das cartas 1 e 2
 
         if (areaA1 > 0) {
           densidadeA1 = (float)populacaoA1 / areaA1;} // Garante que a divisão seja float
@@ -227,7 +227,7 @@ int main() {
 
     default:
       printf("Opção inválida\n");
-      
+      break;
  }
 
     return 0;
