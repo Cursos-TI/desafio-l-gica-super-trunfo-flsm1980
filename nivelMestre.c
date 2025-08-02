@@ -100,8 +100,19 @@ int main() {
         }
 
         // Cálculo do Super Poder das cartas 1 e 2
-        superPoderA1 = (long double)populacaoA1 + areaA1 + pibA1 + pontosturisticosA1 + pibcapitaA1 + (1.0L / densidadeA1);
-        superPoderB1 = (long double)populacaoB1 + areaB1 + pibB1 + pontosturisticosB1 + pibcapitaB1 + (1.0L / densidadeB1);
+
+        long double inversoDensidadeA1 = 0.0L, inversoDensidadeB1 = 0.0L;
+
+        if (densidadeA1 > 0.0L) {
+          inversoDensidadeA1 = 1.0L / densidadeA1;
+        }
+
+        if (densidadeB1 > 0.0L) {
+          inversoDensidadeB1 = 1.0L / densidadeB1;
+        }
+
+        superPoderA1 = (long double)populacaoA1 + areaA1 + pibA1 + pontosturisticosA1 + pibcapitaA1 + inversoDensidadeA1;
+        superPoderB1 = (long double)populacaoB1 + areaB1 + pibB1 + pontosturisticosB1 + pibcapitaB1 + inversoDensidadeB1;
 
     // Exibição dos dados das cartas
     printf("\n\n*** CARTA %s ***\n", cartaA1);
@@ -113,6 +124,7 @@ int main() {
     printf("Pontos Turísticos: %d\n", pontosturisticosA1);     
     printf("Densidade Populacional: %.2f hab/km²\n", densidadeA1);
     printf("PIB per capita: %.2f R$/hab\n", pibcapitaA1);
+    printf("Super Poder: %.2Lf", superPoderA1);
 
     printf("\n*** CARTA %s ***\n", cartaB1);
     printf("Estado: %s\n", estadoB1);
@@ -155,8 +167,12 @@ int main() {
         if (populacaoA1 > populacaoB1) {           
             printf ("1\n"); // Carta A1 venceu
             resultadoAtributo1 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (populacaoB1 > populacaoA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo1 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo1 = 0; // Representa empate
           }
       break;
 
@@ -168,8 +184,12 @@ int main() {
         if (areaA1 > areaB1) {           
             printf ("1\n"); // Carta A1 venceu
             resultadoAtributo1 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (areaB1 > areaA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo1 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo1 = 0; // Representa empate
           }
       break;
 
@@ -181,8 +201,12 @@ int main() {
         if (pibA1 > pibB1) {           
             printf ("1\n"); // Carta A1 venceu
             resultadoAtributo1 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (pibB1 > pibA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo1 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo1 = 0; // Representa empate
           }
       break;
 
@@ -194,8 +218,12 @@ int main() {
         if (pontosturisticosA1 > pontosturisticosB1) {           
             printf ("1\n"); // Carta A1 venceu
             resultadoAtributo1 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (pontosturisticosB1 > pontosturisticosA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo1 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo1 = 0; // Representa empate
           }
       break;
 
@@ -207,8 +235,12 @@ int main() {
         if (densidadeB1 > densidadeA1) {           
             printf ("1\n"); // Carta A1 venceu
             resultadoAtributo1 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (densidadeA1 > densidadeB1 { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo1 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo1 = 0; // Representa empate
           }
       break;
 
@@ -220,8 +252,12 @@ int main() {
         if (pibcapitaA1 > pibcapitaB1) {           
             printf ("1\n"); // Carta A1 venceu
             resultadoAtributo1 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (pibcapitaB1 > pibcapitaA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo1 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo1 = 0; // Representa empate
           }
       break;
 
@@ -233,8 +269,12 @@ int main() {
         if (superPoderA1 > superPoderB1) {           
            printf ("1\n"); // Carta A1 venceu
             resultadoAtributo1 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (superPoderB1 > superPoderA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo1 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo1 = 0; // Representa empate
           }
       break;
 
@@ -245,6 +285,7 @@ int main() {
     default:
       printf("Opção inválida\n");
       break;
+    }
  }
 
     // Escolha do segundo atributo
@@ -255,7 +296,7 @@ int main() {
     if (atributo1 == atributo2) {
         printf("Erro: o segundo atributo não pode ser igual ao primeiro. Tente novamente.\n");
       } else if (atributo2 < 1 || atributo2 > 8) {
-        printf("Opção inválida. Tente novamento.");
+        printf("Opção inválida. Tente novamente.");
       } 
     } while (atributo1 == atributo2 || atributo2 < 1 || atributo2 > 8);
       
@@ -269,8 +310,12 @@ int main() {
         if (populacaoA1 > populacaoB1) {           
             printf ("1\n"); // Carta A1 venceu
             resultadoAtributo2 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (populacaoB1 > populacaoA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo2 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo2 = 0; // Representa empate
           }
       break;
 
@@ -282,8 +327,12 @@ int main() {
         if (areaA1 > areaB1) {           
             printf ("1\n"); // Carta A1 venceu
             resultadoAtributo2 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (areaB1 > areaA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo2 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo2 = 0; // Representa empate
           }
       break;
 
@@ -295,8 +344,12 @@ int main() {
         if (pibA1 > pibB1) {           
            printf ("1\n"); // Carta A1 venceu
             resultadoAtributo2 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (pibB1 > pibA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo2 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo2 = 0; // Representa empate
           }
       break;
 
@@ -308,8 +361,12 @@ int main() {
         if (pontosturisticosA1 > pontosturisticosB1) {           
            printf ("1\n"); // Carta A1 venceu
             resultadoAtributo2 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (pontosturisticosB1 > pontosturisticosA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo2 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo2 = 0; // Representa empate
           }
       break;
 
@@ -321,8 +378,12 @@ int main() {
         if (densidadeB1 > densidadeA1) {           
            printf ("1\n"); // Carta A1 venceu
             resultadoAtributo2 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (densidadeA1 > densidadeB1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo2 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo2 = 0; // Representa empate
           }
       break;
 
@@ -334,8 +395,12 @@ int main() {
         if (pibcapitaA1 > pibcapitaB1) {           
            printf ("1\n"); // Carta A1 venceu
             resultadoAtributo2 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (pibcapitaB1 > pibcapitaA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo2 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo2 = 0; // Representa empate
           }
       break;
  
@@ -347,8 +412,12 @@ int main() {
         if (superPoderA1 > superPoderB1) {           
            printf ("1\n"); // Carta A1 venceu
             resultadoAtributo2 = 1;
-          } else {
-            printf ("0\n"); // Carta B1 venceu ou empatou
+          } else if (superPoderB1 > superPoderA1) { // Carta B1 venceu
+            printf ("2\n");
+            resultadoAtributo2 = 2; // Representa que carta B1 venceu
+          } else { // Empate
+              printf("0\n");
+              resultadoAtributo2 = 0; // Representa empate
           }
       break;
 
